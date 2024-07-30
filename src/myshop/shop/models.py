@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Category(models.Model):
-    name = models.Charfield(max_length=200)
+    name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200,
     unique=True)
 
@@ -14,12 +14,12 @@ class Category(models.Model):
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
-    def_str_(self):
+    def _str_(self):
         return self.name
 
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
-    name = models.Charfield(max_length=200)
+    name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
@@ -36,5 +36,5 @@ class Product(models.Model):
             models.Index(fields=['-created']),
         ]
 
-    def_str_(self):
+    def _str_(self):
         return self.name
