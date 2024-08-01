@@ -30,7 +30,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "apps.shop",
+]
 
 DJANGO_APPS = [
     "django.contrib.admin",
